@@ -186,7 +186,7 @@ La réponse attendue:
 
 #### 3.3.4 Récupération ou création d'un conversation many to many *(4 pts)*
 
-La requête est du nom suivant: **getOrCreateManyToManyConversation**. 
+La requête est du nom suivant: **createManyToManyConversation**. 
 
 Le corps de la requête est comme suit: 
 
@@ -219,8 +219,8 @@ La réponse attendue:
 }
 ```
 
-#### 3.3.5 Récupération de toutes les conversations *(2 pts*)
-
+#### 3.3.5 Récupération de toutes les conversations *(2 pts)*
+*
 La requête est du nom suivant: **getConversations**. 
 
 Le corps de la requête est comme suit: 
@@ -253,7 +253,7 @@ La réponse attendue:
 }
 ```
 
-#### 3.3.6 Envoi de message dans une conversation *(8 pts*)
+#### 3.3.6 Envoi de message dans une conversation *(8 pts)*
 
 La requête est du nom suivant: **postMessage**. 
 
@@ -285,7 +285,7 @@ La réponse attendue:
 }
 ```
 
-#### 3.3.7 Edition d'un message *(2 pts*)
+#### 3.3.7 Edition d'un message *(2 pts)*
 
 La requête est du nom suivant: **editMessage**. 
 
@@ -303,9 +303,9 @@ Le corps de la requête est comme suit:
 La réponse attendue ne contient rien dans l'objet data, seulement le code de retour.
 
 
-#### 3.3.8 Répondre à un message *(2 pts*)
+#### 3.3.8 Répondre à un message *(2 pts)*
 
-La requête est du nom suivant: **editMessage**. 
+La requête est du nom suivant: **replaceMessage**. 
 
 Le corps de la requête est comme suit: 
 
@@ -336,7 +336,7 @@ La réponse attendue:
 }
 ```
 
-#### 3.3.9 Delete message *(2 pts*)
+#### 3.3.9 Delete message *(2 pts)*
 
 La requête est du nom suivant: **deleteMessage**.
 Le corps de la requête est comme suit: 
@@ -352,7 +352,7 @@ Le corps de la requête est comme suit:
 
 La réponse attendue ne contient rien dans l'objet data, seulement le code de retour.
 
-#### 3.3.10 Réagir à un message *(2 pts*)
+#### 3.3.10 Réagir à un message *(2 pts)*
 
 La requête est du nom suivant: **reactMessage**.
 Le corps de la requête est comme suit: 
@@ -415,13 +415,13 @@ Le corps de l'objet est:
 ```json
 {
     "id":1,
-    type:"one_to_one",
-    participants:["John", "Jane"],
-    messages:[],
-    title: null,
-    theme: "BLUE",
-    updated_at: "1995-12-17T03:24:00",
-    typing: []
+    "type":"one_to_one",
+    "participants":["John", "Jane"],
+    "messages":[],
+    "title": null,
+    "theme": "BLUE",
+    "updated_at": "1995-12-17T03:24:00",
+    "typing": []
 }
 ```
 
