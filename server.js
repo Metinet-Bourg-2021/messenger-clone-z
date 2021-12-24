@@ -5,9 +5,9 @@ const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 
-const UserController = require('../controller/UserController');
-const ConversationController = require('../controller/ConversationController');
-const MessageController = require('../controller/MessageController');
+const UserController = require('./controllers/UserController');
+const ConversationController = require('./controllers/ConversationController');
+const MessageController = require('./controllers/MessageController');
 
 const io = new Server(server, { cors: { origin: "*" } });
 
