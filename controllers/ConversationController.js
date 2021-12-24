@@ -1,8 +1,9 @@
 const bcrypt = require('bcrypt');
-const User = require('../models/Conversation');
+const Conversation = require('../models/Conversation');
+const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
-function getOrCreateOneToOneConversation({token, username}) { 
+async function getOrCreateOneToOneConversation({token, username}) { 
         const conversationList = await ConversationSchema.findOne({participants: { "$all" : [username] }, type: 'one_to_one'});
         if (conversationList) 
         {
@@ -33,16 +34,35 @@ function getOrCreateOneToOneConversation({token, username}) {
 
             newConv.title = username;
     
-            return callback({newConv});
+            return {newConv};
         }
 }
 
-function createManyToManyConversation() {
+async function createManyToManyConversation({token, username}) {
+
+    const token = jwt.verify(token, 'secret_key');
+    const userToken = token.userToken;
+    let user = await User.findOne({id:userToken});
+    usernames.push(user.username);
+    let conversationList = await Conversation.find();
+    const conversation = new Conversation({
+        id: conversationList.length,
+        type: "many_to_many",
+        participants: usernames
+    });
+    return {conversation};
 
 }
 
-function getConversations() {
+async function getConversations(token) {
+    const token = jwt.verify(token, 'secret_key');
+    const user = await User.findOne({token:token})
+    if(user)
+    {
+        const conversationList = await Conversation.find({participants : { $in :user.username  }});
+        return {conversationList};
 
+    }
 }
 
 module.exports = {

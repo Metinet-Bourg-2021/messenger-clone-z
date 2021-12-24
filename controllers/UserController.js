@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
-function authenticate(req, res) {
+async function authenticate(req, res) {
 	User.findOne({ username: req.body.username })
 		.then(user => {
 			if (user === null) 
@@ -33,7 +33,7 @@ function authenticate(req, res) {
 		.catch(error => res.status(500).json({ error }));
 }
 
-function getUsers(token) {
+async function getUsers(token) {
 	try {
 		const users = await User.find();
 		const data = users.map((user) => ({
