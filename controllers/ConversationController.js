@@ -8,8 +8,8 @@ async function getOrCreateOneToOneConversation({token, username}) {
         if (conversationList) 
         {
             let messageList = [];
-            await conversationList.messageList.forEach(async (messageId) => {
-                const message = await MessageSchema.find({id : messageId});
+            await conversationList.messageList.forEach(async (message_id) => {
+                const message = await MessageSchema.find({id : message_id});
                 messagesList.push(message);
             });
             conversationList.messageList = messageList;
