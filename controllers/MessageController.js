@@ -2,27 +2,27 @@ const bcrypt = require('bcrypt');
 const User = require('../models/Message');
 const jwt = require('jsonwebtoken');
 
-function postMessage() {
+async function postMessage({token, conversation_id, content}) {
 
 }
 
-function seeConversation() {
+async function seeConversation({token, conversation_id, message_id}) {
 
 }
 
-function replyMessage() {
+async function replyMessage({token, conversation_id, message_id, content}) {
 
 }
 
-function editMessage() {
+async function editMessage({token, conversation_id, message_id, content}) {
 
 }
 
-function reactMessage() {
+async function reactMessage({token, conversation_id, message_id, reaction}) {
 
 }
 
-function deleteMessage() {
+async function deleteMessage({token, conversation_id, message_id, content}) {
 
 }
 

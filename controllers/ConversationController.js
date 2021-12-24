@@ -40,7 +40,6 @@ async function getOrCreateOneToOneConversation({token, username}) {
 
 async function createManyToManyConversation({token, username}) {
 
-    const token = jwt.verify(token, 'secret_key');
     const userToken = token.userToken;
     let user = await User.findOne({id:userToken});
     usernames.push(user.username);
@@ -55,7 +54,7 @@ async function createManyToManyConversation({token, username}) {
 }
 
 async function getConversations(token) {
-    const token = jwt.verify(token, 'secret_key');
+
     const user = await User.findOne({token:token})
     if(user)
     {
